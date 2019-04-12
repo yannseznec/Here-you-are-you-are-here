@@ -27,8 +27,10 @@ int newValues[values];
 int oldValues[values];
 int latitude;
 int longitude;
+int latCurrent;
+int longCurrent;
 int sats;
-
+int masterCurrent;
 int master = 127; // the CC value that controls whether there is sound or not based on whether there is a satellite signal
 
 int const numCC = 8; //  number of CC
@@ -75,9 +77,14 @@ void displayInfo()
     Serial.println(gps.location.lng(), 6);
       latitude = int(gps.location.lat()*10000)%127;
       longitude = int(gps.location.lng()*10000)%127;
+      if (latCurrent != latitude || longCurrent != longitude || masterCurrent != master) {
       usbMIDI.sendControlChange(master, 1, channel); 
       usbMIDI.sendControlChange(75, latitude, channel); 
       usbMIDI.sendControlChange(76, longitude, channel); 
+      latCurrent = latitude;
+      longCurrent = longitude;
+      masterCurrent = master;
+      }
 
   oled.setFontType(0);  // Set font to type 1
   oled.setCursor(0, 0); // move cursor
