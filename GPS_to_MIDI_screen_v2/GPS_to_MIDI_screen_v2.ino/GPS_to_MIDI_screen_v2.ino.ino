@@ -69,12 +69,13 @@ void loop()
 
 void displayInfo()
 {
-  Serial.print(F("Location: ")); 
+//  Serial.print(F("Location: ")); 
   if (gps.location.isValid())
   {
-    Serial.println(gps.location.lat(), 6);
-    Serial.print(F(","));
-    Serial.println(gps.location.lng(), 6);
+    Serial.println(ss.available());
+   // Serial.println(gps.location.lat(), 6);
+  //  Serial.print(F(","));
+//    Serial.println(gps.location.lng(), 6);
       latitude = int(gps.location.lat()*10000)%127;
       longitude = int(gps.location.lng()*10000)%127;
       if (latCurrent != latitude || longCurrent != longitude || masterCurrent != master) {
