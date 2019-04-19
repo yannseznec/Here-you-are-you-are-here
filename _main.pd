@@ -1,4 +1,4 @@
-#N canvas 382 23 1304 814 10;
+#N canvas 345 23 1304 814 10;
 #X floatatom 42 715 5 0 0 0 - - -;
 #X obj 79 690 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
@@ -18,17 +18,17 @@
 #X obj 455 930 send analog0;
 #X obj 523 253 r analog0;
 #X obj 520 315 r analog1;
-#X obj 522 391 r analog2;
+#X obj 503 387 r analog2;
 #X obj 522 444 r analog3;
 #X obj 516 360 analog_assign volume_rcv;
-#X obj 517 420 analog_assign offset_random_rcv;
+#X obj 1022 825 analog_assign offset_random_rcv;
 #X obj 522 491 analog_assign grain_size_rcv;
 #X obj 60 735 s \$0-id;
 #X obj 323 717 r \$0-id;
 #X obj 734 270 r \$0-id;
 #X obj 721 337 r \$0-id;
-#X obj 722 397 r \$0-id;
-#X obj 721 458 r \$0-id;
+#X obj 1227 802 r \$0-id;
+#X obj 688 464 r \$0-id;
 #X floatatom 524 193 5 0 0 0 - - -;
 #X obj 928 14 loadbang;
 #X obj 600 197 print;
@@ -43,21 +43,21 @@
 #X obj 537 616 s singlegrainvolume;
 #X msg 536 591 0.5;
 #X obj 535 565 loadbang;
-#X obj 643 709 analog_assign sample_offset_rcv;
-#X obj 875 669 r \$0-id;
+#X obj 673 669 analog_assign sample_offset_rcv;
+#X obj 850 640 r \$0-id;
 #X obj 684 558 GPS_MIDI_CC, f 31;
 #X floatatom 684 580 5 0 0 0 - - -;
-#X obj 731 617 > 0.5;
-#X floatatom 735 593 5 0 0 0 - - -;
+#X obj 721 608 > 0.5;
+#X floatatom 725 584 5 0 0 0 - - -;
 #X obj 749 645 change;
-#X obj 755 672 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 755 672 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 885 727 r \$0-id;
-#X obj 708 763 analog_assign reverse_rcv;
+#X obj 739 760 analog_assign reverse_rcv;
 #X obj 388 872 spigot;
 #X obj 522 874 spigot;
 #X obj 622 848 spigot;
-#X obj 357 848 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 357 848 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 311 819 loadbang;
 #X msg 311 841 1;
@@ -77,14 +77,14 @@
 #X obj 505 17 loadbang;
 #X msg 505 39 hw 0 0 0;
 #X obj 505 61 send bela_setMIDI;
-#X obj 45 83 ys.granular_stereo arthur_piano1.wav 10;
+#X obj 45 84 ys.granular_stereo arthur_piano1.wav 10;
 #X obj 510 691 adc~ 3 4 5 6;
 #X obj 740 825 ys.snapshot 10;
 #X obj 733 856 spigot;
 #X obj 743 882 send analog3;
 #X obj 431 720 send;
 #X obj 490 522 r on_off_rcv_\$0-id;
-#X obj 515 652 makefilename on_off_rcv_%d;
+#X obj 468 654 makefilename on_off_rcv_%d;
 #X msg 921 58 out 12;
 #X obj 654 97 s bela_digitalOut12 @hv_param;
 #X msg 657 72 1;
@@ -101,6 +101,14 @@
 #X obj 996 397 dac~ 3;
 #X obj 871 389 line~;
 #X msg 849 360 1 \, 0 10;
+#X msg 674 622 \$1 100;
+#X obj 674 643 line;
+#X obj 1147 876 r \$0-id;
+#X floatatom 968 823 5 0 0 0 - - -;
+#X obj 970 912 analog_assign random_pitch_rcv;
+#X obj 968 802 * 0.1;
+#X floatatom 1028 798 5 0 0 0 - - -;
+#X obj 1025 775 * 0.1;
 #X connect 0 0 5 0;
 #X connect 0 0 23 0;
 #X connect 0 0 82 0;
@@ -111,10 +119,6 @@
 #X connect 11 0 12 0;
 #X connect 12 0 10 0;
 #X connect 13 0 53 0;
-#X connect 16 0 14 0;
-#X connect 17 0 20 0;
-#X connect 18 0 21 0;
-#X connect 19 0 22 0;
 #X connect 24 0 7 1;
 #X connect 25 0 14 1;
 #X connect 26 0 20 1;
@@ -131,11 +135,14 @@
 #X connect 45 0 80 0;
 #X connect 45 1 46 0;
 #X connect 45 2 48 0;
+#X connect 45 3 22 0;
 #X connect 45 5 70 0;
+#X connect 45 6 105 0;
 #X connect 45 7 66 0;
 #X connect 45 10 64 0;
+#X connect 45 10 103 0;
 #X connect 45 14 68 0;
-#X connect 46 0 43 0;
+#X connect 46 0 98 0;
 #X connect 47 0 49 0;
 #X connect 48 0 47 0;
 #X connect 49 0 50 0;
@@ -180,3 +187,10 @@
 #X connect 93 0 88 0;
 #X connect 96 0 95 0;
 #X connect 97 0 96 0;
+#X connect 98 0 99 0;
+#X connect 99 0 43 0;
+#X connect 100 0 102 1;
+#X connect 101 0 102 0;
+#X connect 103 0 101 0;
+#X connect 104 0 21 0;
+#X connect 105 0 104 0;
