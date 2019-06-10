@@ -33,6 +33,13 @@ The button creates the sound. Two of the parameters set by the location are the 
 LED
 The LED flashes when location data is received. I originally used a small screen to show the location data, but this was distracting so it has been replaced by this somewhat more abstract approach. The Teensy code still has all the necessary things to include this screen, so if you'd like to use it you just need to get this: https://www.sparkfun.com/products/14048
 
+Ublox NEO-6M 56 Channel GPS Receiver
+I suspect there are better GPS systems than this, but I managed to get it working with the Teensy so I didn't want to push my luck. I'm not hugely happy with it, mainly because it seems to be unusually challenging to consistently receive satellite signals, and in the future I would like to find a better solution. http://www.hobbytronics.co.uk/ublox-gps-neo6m
+
+USB Battery pack
+I use this one, which seems to last a long time and provide enough current for the Bela to run happily: https://www.amazon.co.uk/gp/product/B00F5Q4F0U
+I find when the battery pack is below about half charge things start to go wrong, but this still provides several hours of functionality. 
+
 Potentiometers
 I use 1kΩ linear potentiometers with solder lugs, each with a .1µf capacitor for smoothing. These are the ones:
 https://www.rapidonline.com/taiwan-alpha-rv16af-1k-linear-16mm-metal-case-solder-lug-potentiometer-65-0751
