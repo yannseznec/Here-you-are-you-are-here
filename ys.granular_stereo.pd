@@ -1,362 +1,8 @@
-#N canvas 709 447 1320 769 10;
-#X msg 957 212 \; pd dsp 1;
-#N canvas 0 22 450 278 (subpatch) 0;
-#X array sound-\$0-R 702643 float 2;
-#X coords 0 1 702643 -1 200 70 1 0 0;
-#X restore 27 134 graph;
-#X msg 957 247 \; pd dsp 0;
-#X obj 30 204 hsl 195 15 0 1 0 0 sample_offset_1091 sample_offset_rcv_1091
-sample_offset -2 -8 0 10 -262144 -1 -1 0 1;
-#X obj 30 270 hsl 128 15 0 1 0 0 offset_random_1091 offset_random_rcv_1091
-offset_random -2 -8 0 10 -262144 -1 -1 2540 1;
-#X obj 29 376 hsl 128 15 0 1 0 0 grain_size_1091 grain_size_rcv_1091
-grain_size -2 -8 0 10 -262144 -1 -1 6862 1;
-#X obj 30 307 hsl 128 15 0 1 0 0 grain_pitch_1091 grain_pitch_rcv_1091
-grain_pitch -2 -8 0 10 -262144 -1 -1 1675 1;
-#X obj 172 309 hsl 128 15 0 1 0 0 random_pitch_1091 random_pitch_rcv_1091
-random_pitch -2 -8 0 10 -262144 -1 -1 121 1;
-#X obj 168 514 hsl 128 15 0 1 0 0 random_panning_1091 random_panning_rcv_1091
-random_panning -2 -8 0 10 -262144 -1 -1 5600 1;
-#X obj 30 514 hsl 128 15 0 1 0 0 global_pan_1091 global_pan_rcv_1091
-global_pan -2 -8 0 10 -262144 -1 -1 6350 1;
-#N canvas 453 60 1194 614 windows 0;
-#N canvas 0 22 450 300 (subpatch) 0;
-#X array hann-\$0 441 float 1;
-#A 0 5.58197e-05 0.000211179 0.000466049 0.000820369 0.00127408 0.00182706
-0.00248876 0.00325206 0.00411421 0.00507513 0.00613457 0.00729233 0.00855508
-0.00992075 0.0113839 0.0129444 0.0146018 0.0163559 0.0182106 0.0201685
-0.022222 0.0243706 0.026614 0.0289515 0.0313846 0.0339207 0.0365494
-0.0392705 0.0420832 0.0449872 0.0479817 0.0510767 0.0542615 0.0575351
-0.0608967 0.0643458 0.0678817 0.0715112 0.0752289 0.0790311 0.082917
-0.086886 0.0909373 0.0950752 0.0992985 0.103601 0.107983 0.112443 0.11698
-0.121597 0.126294 0.131067 0.135912 0.140831 0.14582 0.150882 0.15602
-0.161227 0.166501 0.171841 0.177247 0.182717 0.188257 0.19386 0.199524
-0.205248 0.211031 0.216871 0.222772 0.22873 0.234743 0.240808 0.246925
-0.253092 0.259311 0.265581 0.271898 0.27826 0.284667 0.291116 0.297608
-0.304145 0.31072 0.317332 0.323982 0.330666 0.337384 0.344138 0.350924
-0.357738 0.364582 0.371452 0.378348 0.38527 0.392216 0.399183 0.406171
-0.413177 0.4202 0.427241 0.434296 0.441365 0.448445 0.455536 0.462635
-0.469742 0.476856 0.483974 0.491096 0.498219 0.505343 0.512465 0.519585
-0.526701 0.533812 0.540915 0.548011 0.555097 0.562171 0.569233 0.57628
-0.583313 0.590329 0.597327 0.604304 0.611259 0.618192 0.625102 0.631987
-0.638845 0.645674 0.652473 0.659241 0.665977 0.67268 0.679349 0.685981
-0.692573 0.699126 0.70564 0.712113 0.718544 0.72493 0.731267 0.737558
-0.743801 0.749996 0.756142 0.762236 0.768272 0.774255 0.780182 0.786054
-0.791869 0.797626 0.803318 0.808948 0.814517 0.820022 0.825465 0.830842
-0.836149 0.841386 0.846554 0.851654 0.856683 0.861642 0.866525 0.87133
-0.876061 0.880717 0.885297 0.8898 0.894225 0.898563 0.902821 0.906999
-0.911096 0.915111 0.919044 0.922885 0.926639 0.930309 0.933894 0.937391
-0.940802 0.944118 0.947342 0.950477 0.953522 0.956477 0.959341 0.962108
-0.964778 0.967354 0.969838 0.972228 0.974525 0.976724 0.978819 0.980819
-0.982723 0.984531 0.986243 0.987857 0.989363 0.990772 0.992083 0.993295
-0.99441 0.995426 0.996334 0.997141 0.997848 0.998457 0.998966 0.999376
-0.99968 0.999879 0.999978 0.999978 0.999879 0.999679 0.999376 0.998966
-0.998457 0.997848 0.99714 0.996333 0.995426 0.994409 0.993295 0.992082
-0.990771 0.989362 0.987857 0.986242 0.98453 0.982722 0.980818 0.978818
-0.976722 0.974523 0.972227 0.969837 0.967353 0.964776 0.962107 0.959339
-0.956475 0.95352 0.950475 0.94734 0.944116 0.9408 0.937389 0.933891
-0.930307 0.926637 0.922882 0.919042 0.915109 0.911094 0.906997 0.902818
-0.89856 0.894222 0.889797 0.885294 0.880714 0.876058 0.871327 0.866522
-0.861639 0.85668 0.851651 0.846551 0.841383 0.836146 0.830839 0.825461
-0.820019 0.814513 0.808945 0.803315 0.797622 0.791865 0.786051 0.780179
-0.774251 0.768269 0.762232 0.756138 0.749993 0.743798 0.737554 0.731263
-0.724926 0.71854 0.712109 0.705636 0.699123 0.692569 0.685977 0.679345
-0.672676 0.665973 0.659237 0.652469 0.64567 0.638841 0.631983 0.625098
-0.618188 0.611255 0.604299 0.597323 0.590325 0.583309 0.576276 0.569229
-0.562167 0.555093 0.548007 0.540911 0.533807 0.526697 0.519581 0.512461
-0.505338 0.498215 0.491092 0.48397 0.476852 0.469738 0.462631 0.455531
-0.448441 0.441361 0.434292 0.427236 0.420196 0.413173 0.406167 0.399179
-0.392212 0.385266 0.378344 0.371448 0.364578 0.357734 0.350919 0.344134
-0.33738 0.330662 0.323978 0.317328 0.310716 0.304141 0.297604 0.291112
-0.284663 0.278257 0.271894 0.265578 0.259307 0.253088 0.246921 0.240804
-0.234739 0.228727 0.222768 0.216867 0.211027 0.205245 0.199521 0.193857
-0.188254 0.182714 0.177243 0.171838 0.166497 0.161223 0.156016 0.150878
-0.145817 0.140827 0.135909 0.131063 0.126291 0.121593 0.116977 0.11244
-0.10798 0.103598 0.0992954 0.0950722 0.0909344 0.086883 0.0829141 0.0790282
-0.075226 0.0715085 0.0678789 0.0643432 0.0608941 0.0575325 0.054259
-0.0510742 0.0479794 0.0449848 0.042081 0.0392683 0.0365472 0.0339186
-0.0313826 0.0289496 0.026612 0.0243689 0.0222203 0.0201668 0.018209
-0.0163543 0.0146004 0.012943 0.0113826 0.00991952 0.00855392 0.00729129
-0.00613356 0.00507423 0.00411341 0.00325134 0.00248814 0.00182652 0.00127363
-0.000820011 0.00046578 0.00021103 5.57601e-05 0;
-#X coords 0 1 440 0 200 140 1 0 0;
-#X restore 383 47 graph;
-#N canvas 0 22 450 300 (subpatch) 0;
-#X array crown-\$0 441 float 1;
-#A 0 0.0356611 0.0712777 0.10689 0.142498 0.1781 0.213688 0.249272
-0.284836 0.32039 0.355928 0.391445 0.42695 0.46242 0.497879 0.533304
-0.568705 0.604083 0.639418 0.674739 0.710003 0.745247 0.780448 0.815606
-0.850737 0.885803 0.920846 0.955822 0.990761 1 1 1 1 1 1 1 1 1 1 1
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0.99072
-0.955781 0.920804 0.885761 0.850695 0.815564 0.780405 0.745205 0.709961
-0.674697 0.639376 0.604041 0.568663 0.533262 0.497837 0.462378 0.426908
-0.391402 0.355886 0.320348 0.284794 0.249229 0.213646 0.178057 0.142455
-0.106848 0.0712351 0.0356185 3.77489e-07;
-#X coords 0 1 440 0 200 140 1 0 0;
-#X restore 383 267 graph;
-#X text 363 177 0;
-#X text 362 40 1;
-#X text 363 397 0;
-#X text 362 260 1;
-#X obj 102 160 cos~;
-#X obj 102 183 *~ -0.5;
-#X obj 102 208 +~ 0.5;
-#X msg 102 83 0 \, 1 10;
-#X obj 102 131 vline~;
-#X text 379 190 0;
-#X text 568 192 441;
-#X text 379 410 0;
-#X text 568 412 441;
-#X text 156 81 441 samples = 10 ms;
-#X obj 108 473 clip~ 0 1;
-#X obj 109 343 vline~;
-#X obj 109 367 cos~;
-#X floatatom 143 409 5 0 0 0 - - -;
-#X text 181 409 higher values shorten ramps;
-#X obj 68 36 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 71 278 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X text 93 35 make Hann window;
-#X text 99 278 make crown;
-#X obj 792 123 bng 15 250 50 0 make_tables make_tables_rcv_1091 make_tables
+#N canvas 294 72 788 441 10;
+#X floatatom 610 44 5 0 0 0 sample_seconds - -;
+#X obj 51 130 bng 15 250 50 0 reset_pitch reset_pitch_rcv reset_pitch
 17 7 0 10 -262144 -1 -1;
-#X obj 26 9 inlet;
-#X obj 108 449 *~ 5;
-#X obj 722 383 soundfiler;
-#X obj 689 13 loadbang;
-#X obj 102 250 tabwrite~ hann-\$0;
-#X obj 108 508 tabwrite~ crown-\$0;
-#X obj 720 233 i \$0;
-#X msg 733 320 read -resize sounds/hanning.wav crown-\$1;
-#X msg 723 283 read -resize sounds/hanning.wav hann-\$1;
-#X obj 770 70 i \$0;
-#X obj 700 50 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X msg 790 98 receive make_tables_rcv_\$1;
-#X obj 715 196 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 617 503 samplerate~;
-#X floatatom 617 525 5 0 0 0 - - -;
-#X obj 620 473 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X msg 109 320 -0.25 \, 0.25 10;
-#X floatatom 235 316 5 0 0 0 - - -;
-#X msg 300 471 441;
-#X obj 298 496 array size crown-\$0;
-#X msg 218 160 441;
-#X obj 216 185 array size hann-\$0;
-#X connect 6 0 7 0;
-#X connect 7 0 8 0;
-#X connect 8 0 30 0;
-#X connect 9 0 10 0;
-#X connect 10 0 6 0;
-#X connect 16 0 31 0;
-#X connect 17 0 18 0;
-#X connect 18 0 27 0;
-#X connect 19 0 27 1;
-#X connect 21 0 9 0;
-#X connect 21 0 30 0;
-#X connect 21 0 46 0;
-#X connect 22 0 42 0;
-#X connect 22 0 31 0;
-#X connect 22 0 44 0;
-#X connect 27 0 16 0;
-#X connect 29 0 36 0;
-#X connect 32 0 34 0;
-#X connect 32 0 33 0;
-#X connect 33 0 28 0;
-#X connect 34 0 28 0;
-#X connect 35 0 37 0;
-#X connect 36 0 35 0;
-#X connect 37 0 25 0;
-#X connect 38 0 32 0;
-#X connect 39 0 40 0;
-#X connect 41 0 39 0;
-#X connect 42 0 17 0;
-#X connect 43 0 18 0;
-#X connect 44 0 45 0;
-#X connect 46 0 47 0;
-#X restore 790 261 pd windows;
-#X obj 191 359 vsl 15 128 0 1 0 0 attack_1091 attack_rcv_1091 attack
-0 -9 0 10 -262144 -1 -1 10687 1;
-#X obj 244 360 vsl 15 128 0 1 0 0 release_1091 release_rcv_1091 release
-0 -9 0 10 -262144 -1 -1 5420 1;
-#X obj 888 232 bng 15 250 50 0 empty numgrains_rcv_1091 empty 17 7
-0 10 -262144 -1 -1;
-#X obj 29 414 hsl 128 15 0 1 0 0 grain_env_1091 grain_env_rcv_1091
-grain_env -2 -8 0 10 -262144 -1 -1 12700 1;
-#X obj 254 129 hsl 128 15 0 1 0 0 autoplay_speed_1091 autoplay_speed_rcv_1091
-autoplay_speed -2 -8 0 10 -262144 -1 -1 12700 1;
-#X obj 254 173 tgl 15 0 freeze_1091 freeze_rcv_1091 freeze 17 7 0 10
--262144 -1 -1 0 1;
-#X obj 253 94 tgl 15 0 autoplay_on_off_1091 autoplay_on_off_rcv_1091
-autoplay_on_off 17 7 0 10 -262144 -1 -1 0 1;
-#X obj 34 450 hsl 128 15 0 1 0 0 grains_playing_1091 grains_playing_rcv_1091
-grains_playing -2 -8 0 10 -262144 -1 -1 12700 1;
-#X obj 26 331 tgl 15 0 reverse_1091 reverse_rcv_1091 reverse 17 7 0
-10 -262144 -1 -1 1 1;
-#N canvas 377 102 1247 803 envelope 0;
-#X floatatom 153 149 5 0 0 0 - - -;
-#X obj 154 125 * 1000;
-#X obj 56 192 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X floatatom 221 146 5 0 0 0 - - -;
-#X obj 67 66 sel 1 0;
-#X obj 150 202 i;
-#X obj 143 178 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 133 242 t f b;
-#X obj 221 125 * 5000;
-#X obj 56 217 i;
-#X msg 56 266 1 \$1;
-#X obj 56 244 t f b;
-#X obj 45 322 s onoff;
-#X msg 133 264 0 \$1;
-#X obj 368 38 notein;
-#X obj 370 109 route 70 71 73 74;
-#X floatatom 368 140 5 0 0 0 - - -;
-#X obj 368 68 pack 0 0;
-#X floatatom 414 139 5 0 0 0 - - -;
-#X floatatom 459 139 5 0 0 0 - - -;
-#X floatatom 503 140 5 0 0 0 - - -;
-#X obj 357 175 > 0;
-#X obj 413 176 > 0;
-#X obj 462 175 > 0;
-#X obj 518 176 > 0;
-#X obj 362 218 sel 1 0;
-#X floatatom 216 252 5 0 0 0 - - -;
-#X obj 65 41 r on_off_\$0;
-#X obj 154 85 r attack_\$0;
-#X obj 222 91 r release_\$0;
-#X connect 0 0 9 1;
-#X connect 1 0 0 0;
-#X connect 2 0 9 0;
-#X connect 3 0 5 1;
-#X connect 4 0 2 0;
-#X connect 4 1 6 0;
-#X connect 5 0 7 0;
-#X connect 6 0 5 0;
-#X connect 7 0 13 0;
-#X connect 8 0 3 0;
-#X connect 9 0 11 0;
-#X connect 10 0 12 0;
-#X connect 11 0 10 0;
-#X connect 13 0 12 0;
-#X connect 14 0 17 0;
-#X connect 14 1 17 1;
-#X connect 15 0 16 0;
-#X connect 15 1 18 0;
-#X connect 15 2 19 0;
-#X connect 15 3 20 0;
-#X connect 16 0 21 0;
-#X connect 17 0 15 0;
-#X connect 18 0 22 0;
-#X connect 19 0 23 0;
-#X connect 20 0 24 0;
-#X connect 21 0 25 0;
-#X connect 22 0 25 0;
-#X connect 23 0 25 0;
-#X connect 24 0 25 0;
-#X connect 27 0 4 0;
-#X connect 28 0 1 0;
-#X connect 29 0 8 0;
-#X restore 791 283 pd envelope;
-#X obj 31 233 hsl 195 15 0 1 0 0 rec_location_1091 rec_location_rcv_1091
-rec_location -2 -8 0 10 -262144 -258113 -1 0 1;
-#X obj 961 188 delay 3000;
-#X obj 1029 218 print dsp_on_bang;
-#X floatatom 1135 339 5 0 0 0 - - -;
-#X obj 1135 287 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 1164 274 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-1 1;
-#X obj 1164 294 metro 20;
-#X obj 1140 224 loadbang;
-#X msg 1140 246 1;
-#X obj 1135 317 wiringPi_gpio 0 1 1;
-#N canvas 30 531 1326 420 loadsound 0;
-#X obj 88 278 soundfiler;
-#X floatatom 88 300 15 0 0 0 - - -;
-#X obj 47 88 openpanel;
-#X obj 63 278 bng 15 250 50 0 empty length_bang_rcv empty 17 7 0 10
--262144 -1 -1;
-#X msg 355 67 musicbox.wav;
-#X obj 387 145 symbol;
-#X msg 462 67 charango.wav;
-#X msg 567 69 sewing.wav;
-#X msg 365 34 humming.wav;
-#X msg 472 37 bike_wheel_piezo.wav;
-#X msg 685 75 kiss.wav;
-#X msg 464 98 salut.wav;
-#X msg 547 124 bomb.wav;
-#X msg 649 33 hiccups.wav;
-#X obj 189 141 makefilename sound-%d;
-#X obj 191 118 i \$0;
-#X obj 192 96 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 194 46 loadbang;
-#X obj 54 174 pack s s;
-#X obj 406 194 pack s s;
-#X obj 323 358 s samplelength_\$0;
-#X obj 46 66 r select_sound_\$0;
-#X obj 403 307 unpack 0 0 0 0 s;
-#X floatatom 459 339 5 0 0 0 - - -;
-#X obj 152 361 print samplelength_\$0;
-#X obj 460 360 sel 1 2;
-#X obj 563 338 s num_channels_rcv_\$0;
-#X msg 58 221 read -resize -maxsize 8e+06 \$1 \$2-L \$2-R;
-#X obj 724 126 inlet;
-#X msg 241 241 read -resize -maxsize 8e+06 \$1 \$2-L \$2-R;
-#X connect 0 0 1 0;
-#X connect 0 1 22 0;
-#X connect 1 0 20 0;
-#X connect 1 0 24 0;
-#X connect 2 0 18 0;
-#X connect 3 0 1 0;
-#X connect 4 0 5 0;
-#X connect 5 0 19 0;
-#X connect 6 0 5 0;
-#X connect 7 0 5 0;
-#X connect 8 0 5 0;
-#X connect 9 0 5 0;
-#X connect 10 0 5 0;
-#X connect 11 0 5 0;
-#X connect 12 0 5 0;
-#X connect 13 0 5 0;
-#X connect 14 0 18 1;
-#X connect 14 0 19 1;
-#X connect 15 0 14 0;
-#X connect 16 0 15 0;
-#X connect 17 0 16 0;
-#X connect 18 0 27 0;
-#X connect 19 0 29 0;
-#X connect 21 0 2 0;
-#X connect 22 2 23 0;
-#X connect 22 2 26 0;
-#X connect 23 0 25 0;
-#X connect 27 0 0 0;
-#X connect 28 0 19 0;
-#X connect 29 0 0 0;
-#X restore 789 237 pd loadsound;
-#X obj 234 234 tgl 15 0 record_1091 record_rcv_1091 record 17 7 0 10
--262144 -1 -1 0 1;
-#X obj 184 260 tgl 15 0 input_monitor_1091 input_monitor_rcv_1091 input_monitor
-17 7 0 10 -262144 -1 -1 0 1;
-#X floatatom 348 249 5 0 0 0 sample_seconds - -;
-#X obj 95 333 bng 15 250 50 0 reset_pitch_1091 reset_pitch_rcv_1091
-reset_pitch 17 7 0 10 -262144 -1 -1;
-#N canvas 264 461 1091 567 clock 0;
+#N canvas 124 419 1091 567 clock 0;
 #X obj 61 279 phasor~ 0.1;
 #X floatatom 76 144 5 0 0 0 - - -;
 #X floatatom 177 94 5 0 0 0 - - -;
@@ -370,8 +16,8 @@ reset_pitch 17 7 0 10 -262144 -1 -1;
 #X obj 99 249 samphold~;
 #X obj 75 188 *~ 2;
 #X obj 87 320 outlet~;
-#X obj 179 36 r grain_size_\$0;
-#X obj 180 202 s grainsize_\$0;
+#X obj 179 36 r grain_size;
+#X obj 180 202 s grainsize;
 #X connect 0 0 12 0;
 #X connect 1 0 8 0;
 #X connect 2 0 3 0;
@@ -387,503 +33,80 @@ reset_pitch 17 7 0 10 -262144 -1 -1;
 #X connect 10 0 0 0;
 #X connect 11 0 9 0;
 #X connect 13 0 7 0;
-#X restore 917 90 pd clock;
-#X obj 337 583 bng 15 250 50 0 defaults_1091 defaults_rcv_1091 defaults
-17 7 0 10 -262144 -1 -1;
-#N canvas 498 43 916 835 settings 0;
+#X restore 121 222 pd clock;
+#X obj 293 380 bng 15 250 50 0 defaults defaults_rcv defaults 17 7
+0 10 -262144 -1 -1;
+#N canvas 516 193 916 835 settings 0;
 #X obj 73 23 loadbang;
 #X obj 52 276 r reset_pitch_\$0;
 #X obj 50 319 s grain_pitch_rcv_\$0;
-#X obj 732 9 r defaults_\$0;
-#X obj 665 91 i \$0;
+#X obj 766 80 i \$0;
 #X obj 651 61 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 267 130 i \$0;
 #X obj 257 92 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X msg 262 159 \; sample_offset_rcv_\$1 send sample_offset_\$1 \; rec_location_rcv_\$1
-send rec_location_\$1 \; record_rcv_\$1 send record_\$1 \; offset_random_rcv_\$1
-send offset_random_\$1 \; input_monitor_rcv_\$1 send input_monitor_\$1
-\; grain_pitch_rcv_\$1 send grain_pitch_\$1 \; random_pitch_rcv_\$1
-send random_pitch_\$1 \; reverse_rcv_\$1 send reverse_\$1 \; reset_pitch_rcv_\$1
-send reset_pitch_\$1 \; grain_size_rcv_\$1 send grain_size_\$1 \; grain_env_rcv_\$1
-send grain_env_\$1 \; grains_playing_rcv_\$1 send grains_playing_\$1
-\; global_pan_rcv_\$1 send global_pan_\$1 \; random_panning_rcv_\$1
-send random_panning_\$1 \; attack_rcv_\$1 send attack_\$1 \; release_rcv_\$1
-send release_\$1 \; autoplay_on_off_rcv_\$1 send autoplay_on_off_\$1
-\; autoplay_speed_rcv_\$1 send autoplay_speed_\$1 \; autoplay_reverse_rcv_\$1
-send autoplay_reverse_\$1 \; freeze_rcv_\$1 send freeze_\$1 \; on_off_rcv_\$1
-send on_off_\$1 \; defaults_rcv_\$1 send defaults_\$1 \; volume_rcv_\$1
-send volume_\$1 \; select_sound_rcv_\$1 send select_sound_\$1 \;;
 #X obj 633 31 inlet;
 #X obj 253 61 inlet;
 #X msg 50 297 0.25;
-#X msg 666 120 \; grain_pitch_rcv_\$1 0.25 \; grain_size_rcv_\$1 0.5
-\; sample_offset_rcv_\$1 0.5 \; offset_random_rcv_\$1 0.02 \; random_pitch_rcv_\$1
-0 \; random_panning_rcv_\$1 0.2 \; numgrains_rcv_\$1 bang \; global_pan_rcv_\$1
-0.5 \; grain_env_rcv_\$1 1 \; make_tables_rcv_\$1 bang \; grains_playing_rcv_\$1
-1 \; autoplay_speed_rcv_\$1 1 \; autoplay_reverse_rcv_\$1 0 \; freeze_rcv_\$1
-0 \; autoplay_on_off_rcv_\$1 0 \; on_off_rcv_\$1 1 \; attack_rcv_\$1
-0.02 \; release_rcv_\$1 0.02 \; volume_rcv_\$1 1 \; num_channels_rcv_\$0
-2 \;;
-#X connect 1 0 11 0;
-#X connect 3 0 4 0;
-#X connect 4 0 12 0;
-#X connect 5 0 4 0;
-#X connect 6 0 8 0;
-#X connect 7 0 6 0;
-#X connect 9 0 5 0;
-#X connect 10 0 7 0;
-#X connect 11 0 2 0;
-#X restore 321 -194 pd settings;
-#X obj 254 26 tgl 30 0 on_off_1091 on_off_rcv_1091 on_off 30 7 0 10
--262144 -1 -1 0 1;
-#X obj 253 152 tgl 15 0 autoplay_reverse_1091 autoplay_reverse_rcv_1091
-autoplay_reverse 17 7 0 10 -262144 -1 -1 0 1;
-#N canvas 30 75 1369 803 autoplay 0;
-#X floatatom 279 367 5 0 0 0 - - -;
-#X obj 300 442 phasor~ 0.1;
-#X obj 300 464 ys.snapshot 2;
-#X obj 364 505 spigot;
-#X obj 517 346 sel 1;
-#X obj 376 371 f;
-#X obj 302 565 spigot;
-#X obj 163 399 - 1;
-#X obj 163 421 abs;
-#X obj 162 446 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
-1;
-#X obj 222 375 sel 0;
-#X obj 233 415 f;
-#X floatatom 94 71 5 0 0 0 - - -;
-#X obj 94 90 / 44.1;
-#X floatatom 94 112 5 0 0 0 - - -;
-#X floatatom 94 153 15 0 0 0 - - -;
-#X obj 94 131 expr 1000/$f1;
-#X obj 181 256 *;
-#X obj 250 331 * 1;
-#X obj 268 286 t b b;
-#X obj 267 259 sel 0 1;
-#X msg 301 313 1;
-#X obj 325 285 t b b;
-#X msg 358 312 -1;
-#X obj 474 312 t f f;
-#X obj 518 389 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X msg 666 120 \; grain_pitch_rcv 0.25 \; grain_size_rcv 0.5 \; sample_offset_rcv
+0.5 \; offset_random_rcv 0.02 \; random_pitch_rcv 0 \; random_panning_rcv
+0.2 \; numgrains_rcv bang \; global_pan_rcv 0.5 \; grain_env_rcv 1
+\; make_tables_rcv bang \; grains_playing_rcv 1 \; autoplay_speed_rcv
+1 \; autoplay_reverse_rcv 0 \; freeze_rcv 0 \; autoplay_on_off_rcv
+0 \; on_off_rcv 1 \; attack_rcv 0.02 \; release_rcv 0.02 \; volume_rcv
+1 \; num_channels_rcv 2 \;;
+#X msg 262 159 \; sample_offset_rcv send sample_offset \; rec_location_rcv
+send rec_location \; record_rcv send record \; offset_random_rcv send
+offset_random \; input_monitor_rcv send input_monitor \; grain_pitch_rcv
+send grain_pitch \; random_pitch_rcv send random_pitch \; reverse_rcv
+send reverse \; reset_pitch_rcv send reset_pitch \; grain_size_rcv
+send grain_size \; grain_env_rcv send grain_env \; grains_playing_rcv
+send grains_playing \; global_pan_rcv send global_pan \; random_panning_rcv
+send random_panning \; attack_rcv send attack \; release_rcv send release
+\; autoplay_on_off_rcv send autoplay_on_off \; autoplay_speed_rcv send
+autoplay_speed \; autoplay_reverse_rcv send autoplay_reverse \; freeze_rcv
+send freeze \; on_off_rcv send on_off \; defaults_rcv send defaults
+\; volume_rcv send volume \; select_sound_rcv send select_sound \;
+;
+#X connect 1 0 9 0;
+#X connect 5 0 11 0;
+#X connect 6 0 5 0;
+#X connect 7 0 4 0;
+#X connect 8 0 6 0;
+#X connect 9 0 2 0;
+#X restore 527 179 pd settings;
+#X obj 131 45 bng 15 250 50 0 select_sound select_sound_rcv select_sound
+17 7 0 10 -262144 -1 -1;
+#X obj 623 131 loadbang;
+#X obj 520 155 t b b b;
+#X obj 710 135 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X floatatom 388 393 5 0 0 0 - - -;
-#X obj 94 49 r samplelength_\$0;
-#X obj 189 202 r autoplay_speed_\$0;
-#X obj 267 238 r autoplay_reverse_\$0;
-#X obj 403 159 r sample_offset_\$0;
-#X obj 511 203 r autoplay_on_off_\$0;
-#X obj 167 342 r freeze_\$0;
-#X obj 299 593 s sample_offset_rcv_\$0;
-#X obj 110 201 t b f;
-#X connect 0 0 1 0;
-#X connect 1 0 2 0;
-#X connect 2 0 3 0;
-#X connect 3 0 6 0;
-#X connect 4 0 5 0;
-#X connect 4 0 25 0;
-#X connect 5 0 1 1;
-#X connect 5 0 26 0;
-#X connect 6 0 11 1;
-#X connect 6 0 33 0;
-#X connect 7 0 8 0;
-#X connect 8 0 9 0;
-#X connect 9 0 6 1;
-#X connect 10 0 11 0;
-#X connect 11 0 1 1;
-#X connect 12 0 13 0;
-#X connect 13 0 14 0;
-#X connect 14 0 16 0;
-#X connect 15 0 34 0;
-#X connect 16 0 15 0;
-#X connect 17 0 18 0;
-#X connect 18 0 0 0;
-#X connect 19 0 18 0;
-#X connect 19 1 21 0;
-#X connect 20 0 19 0;
-#X connect 20 1 22 0;
-#X connect 21 0 18 1;
-#X connect 22 0 18 0;
-#X connect 22 1 23 0;
-#X connect 23 0 18 1;
-#X connect 24 0 3 1;
-#X connect 24 1 4 0;
-#X connect 27 0 12 0;
-#X connect 28 0 17 0;
-#X connect 29 0 20 0;
-#X connect 30 0 5 1;
-#X connect 31 0 24 0;
-#X connect 32 0 7 0;
-#X connect 32 0 10 0;
-#X connect 34 0 17 0;
-#X connect 34 1 17 1;
-#X restore 791 304 pd autoplay;
-#X obj 137 45 bng 15 250 50 0 select_sound_1091 select_sound_rcv_1091
-select_sound 17 7 0 10 -262144 -1 -1;
-#X text 657 394 todo: implement higher resolution controls make UI
-Switchable record mode? -make things instance specific - helpfile;
-#X obj 890 365 s numgrains_\$0;
-#X obj 401 758 dac~;
-#X obj 346 714 *~ 1;
-#X obj 393 694 *~ 1;
-#X obj 349 643 catch~ grainoutL_\$0;
-#X obj 393 672 catch~ grainoutR_\$0;
-#X obj 30 681 r \$0_3-loc;
-#X obj 433 -191 i \$0;
-#X obj 446 -213 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 518 -267 loadbang;
-#X msg 462 -143 receive sample_offset_rcv_\$1;
-#X msg 459 -111 receive rec_location_rcv_\$1;
-#X obj 415 -243 t b b b;
-#X obj 605 -263 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 535 687 r volume_\$0;
-#X obj 315 362 vsl 15 128 0.01 1.4 1 0 volume_1091 volume_rcv_1091
-volume 0 -9 0 10 -262144 -1 -1 11835 1;
-#X msg 461 -85 receive on_off_rcv_\$1;
-#X msg 470 -57 receive select_sound_rcv_\$1;
-#X msg 476 -169 receive autoplay_on_off_rcv_\$1;
-#X msg 469 -22 receive autoplay_speed_rcv_\$1;
-#X msg 463 39 receive freeze_rcv_\$1;
-#X msg 463 6 receive autoplay_reverse_rcv_\$1;
-#X msg 460 66 receive record_rcv_\$1;
-#X msg 467 94 receive offset_random_rcv_\$1;
-#X msg 470 124 receive input_monitor_rcv_\$1;
-#X msg 477 162 receive grain_pitch_rcv_\$1;
-#X msg 484 195 receive random_pitch_rcv_\$1;
-#X msg 481 227 receive reverse_rcv_\$1;
-#X msg 479 259 receive reset_pitch_rcv_\$1;
-#X msg 486 318 receive grain_env_rcv_\$1;
-#X msg 481 291 receive grain_size_rcv_\$1;
-#X msg 487 375 receive attack_rcv_\$1;
-#X msg 485 347 receive grains_playing_rcv_\$1;
-#X msg 486 401 receive release_rcv_\$1;
-#X msg 484 431 receive volume_rcv_\$1;
-#X msg 460 463 receive global_pan_rcv_\$1;
-#X msg 452 488 receive random_panning_rcv_\$1;
-#X msg 451 523 receive defaults_rcv_\$1;
-#X msg 872 44 receive numgrains_rcv_\$1;
-#X obj 726 351 s sample_seconds_\$0;
-#X obj 736 92 r sample_seconds_rcv_\$0;
-#X obj 426 146 loadbang;
-#N canvas 0 23 450 278 (subpatch) 0;
-#X array sound-\$0-L 702643 float 2;
-#X coords 0 1 702643 -1 200 70 1 0 0;
-#X restore 27 64 graph;
-#X floatatom 351 276 5 0 0 0 - - -;
-#X obj 456 580 r num_channels_rcv_\$0;
-#X obj 502 625 s num_channels_\$0;
-#X text 290 275 channels;
-#X obj 144 671 loadbang;
-#X msg 144 693 1;
-#X obj 161 727 s num_channels_rcv_\$0;
-#X obj 86 769 outlet;
-#X obj 81 738 i \$0;
-#X obj 81 706 loadbang;
-#X obj 46 706 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 789 50 inlet;
-#N canvas 357 100 1057 664 sampling_stereo 0;
-#X obj 42 108 adc~;
-#X msg 478 144 stop, f 7;
-#X msg 216 214 start \$1;
-#X obj 310 84 *;
-#X obj 287 117 f;
-#X obj 285 85 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 222 47 sel 1 0;
-#X obj 86 181 *~;
-#X obj 114 141 line~;
-#X obj 19 425 dac~;
-#X obj 1 335 *~;
-#X obj 160 198 line~;
-#X msg 161 169 \$1 30;
-#X obj 427 353 line;
-#X msg 489 317 \$1;
-#X obj 429 281 pack 0 0;
-#X obj 408 231 f;
-#X obj 491 199 t b f;
-#X obj 424 416 /;
-#X floatatom 424 438 5 0 0 0 - - -;
-#X msg 423 317 \$2 \$1;
-#X obj 362 171 -;
-#X obj 351 128 t b f;
-#X obj 362 193 / 44.1;
-#X obj 573 398 == 1;
-#X obj 573 420 sel 1;
-#X obj 571 464 spigot;
-#X obj 570 489 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X msg 609 561 0;
-#X obj 579 610 f;
-#X obj 677 581 / 44.1;
-#X obj 325 241 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 167 143 r input_monitor_\$0;
-#X obj 306 46 r sample_offset_\$0;
-#X obj 451 45 r samplelength_\$0;
-#X obj 224 16 r record_\$0;
-#X obj 55 55 r record_\$0;
-#X obj 463 248 r samplelength_\$0;
-#X obj 444 384 r samplelength_\$0;
-#X obj 196 633 s samplelength_\$0;
-#X obj 687 548 r samplelength_\$0;
-#X obj 639 421 r record_\$0;
-#X obj 337 501 s rec_location_rcv_\$0;
-#X obj 113 419 r sample_seconds_\$0;
-#X obj 124 370 tabwrite~ sound-\$0-L;
-#X obj 275 371 tabwrite~ sound-\$0-R;
-#X obj 122 186 *~;
-#X obj 34 338 *~;
-#X obj 120 254 r num_channels_\$0;
-#X obj 120 276 sel 1 2;
-#X msg 120 298 1;
-#X msg 159 299 0;
-#X obj 198 347 *~;
-#X obj 63 376 *~;
-#X obj 41 634 array size sound-\$0-L;
-#X obj 39 602 array size sound-\$0-R;
-#X floatatom 380 83 5 0 0 0 - - -;
-#X obj 110 469 * 44100;
-#X floatatom 111 450 5 0 0 0 - - -;
-#X obj 219 523 % 64;
-#X obj 192 543 -;
-#X obj 192 450 int;
-#X floatatom 192 565 15 0 0 0 - - -;
-#X floatatom 143 28 5 0 0 0 - - -;
-#X obj 106 106 pack 0 30;
-#X obj 202 99 delay 30;
-#X obj 467 114 delay 30;
-#X obj 579 523 t b b b;
-#X msg 643 562 0;
-#X obj 192 472 t b f f;
-#X obj 202 600 f;
-#X obj 139 521 delay 500;
-#X connect 0 0 7 0;
-#X connect 0 0 10 0;
-#X connect 0 1 46 0;
-#X connect 0 1 47 0;
-#X connect 1 0 13 0;
-#X connect 1 0 44 0;
-#X connect 1 0 45 0;
-#X connect 2 0 44 0;
-#X connect 2 0 45 0;
-#X connect 3 0 4 1;
-#X connect 3 0 22 0;
-#X connect 3 0 56 0;
-#X connect 4 0 2 0;
-#X connect 4 0 17 0;
-#X connect 5 0 4 0;
-#X connect 6 0 65 0;
-#X connect 6 1 66 0;
-#X connect 7 0 44 0;
-#X connect 7 0 52 0;
-#X connect 8 0 7 1;
-#X connect 8 0 46 1;
-#X connect 10 0 9 0;
-#X connect 10 0 53 0;
-#X connect 11 0 10 1;
-#X connect 11 0 47 1;
-#X connect 12 0 11 0;
-#X connect 13 0 18 0;
-#X connect 14 0 13 0;
-#X connect 15 0 20 0;
-#X connect 16 0 15 0;
-#X connect 17 0 16 0;
-#X connect 17 1 14 0;
-#X connect 18 0 19 0;
-#X connect 19 0 24 0;
-#X connect 19 0 42 0;
-#X connect 20 0 13 0;
-#X connect 21 0 23 0;
-#X connect 22 0 21 0;
-#X connect 22 1 21 1;
-#X connect 23 0 16 1;
-#X connect 24 0 25 0;
-#X connect 25 0 26 0;
-#X connect 26 0 27 0;
-#X connect 27 0 67 0;
-#X connect 28 0 2 0;
-#X connect 29 0 15 0;
-#X connect 30 0 29 1;
-#X connect 31 0 44 0;
-#X connect 31 0 45 0;
-#X connect 32 0 12 0;
-#X connect 33 0 3 0;
-#X connect 34 0 3 1;
-#X connect 34 0 21 0;
-#X connect 35 0 6 0;
-#X connect 36 0 64 0;
-#X connect 37 0 15 1;
-#X connect 38 0 18 1;
-#X connect 40 0 30 0;
-#X connect 41 0 26 1;
-#X connect 43 0 58 0;
-#X connect 46 0 45 0;
-#X connect 47 0 9 1;
-#X connect 48 0 49 0;
-#X connect 49 0 50 0;
-#X connect 49 1 51 0;
-#X connect 50 0 52 1;
-#X connect 50 0 53 1;
-#X connect 51 0 52 1;
-#X connect 51 0 53 1;
-#X connect 52 0 45 0;
-#X connect 53 0 9 1;
-#X connect 57 0 61 0;
-#X connect 58 0 57 0;
-#X connect 59 0 60 1;
-#X connect 60 0 62 0;
-#X connect 61 0 69 0;
-#X connect 62 0 54 0;
-#X connect 62 0 55 0;
-#X connect 62 0 70 1;
-#X connect 63 0 64 1;
-#X connect 63 0 65 1;
-#X connect 63 0 66 1;
-#X connect 64 0 8 0;
-#X connect 65 0 5 0;
-#X connect 66 0 1 0;
-#X connect 67 0 29 0;
-#X connect 67 1 28 0;
-#X connect 67 2 68 0;
-#X connect 68 0 14 0;
-#X connect 69 0 71 0;
-#X connect 69 1 60 0;
-#X connect 69 2 59 0;
-#X connect 70 0 39 0;
-#X connect 71 0 70 0;
-#X restore 788 172 pd sampling_stereo;
-#X obj 199 619 ys.audiomidisetup;
-#X obj 750 524 r grain_size_\$0;
-#X floatatom 750 546 5 0 0 0 - - -;
-#X floatatom 751 598 15 0 0 0 - - -;
-#X obj 749 642 s random_metro_\$0;
-#X obj 752 576 * 1000;
-#X floatatom 967 525 5 0 0 0 - - -;
-#X obj 967 544 s pitch_range_\$0;
-#X obj 923 323 i \$2;
-#X obj 926 297 loadbang;
-#X msg 966 326 8;
-#X msg 1002 327 16;
-#X obj 715 202 symbol \$1;
-#X obj 719 175 loadbang;
-#X obj 624 564 loadbang;
-#X msg 624 586 2;
-#X msg 426 205 8;
-#X msg 426 182 delay 1000;
-#X msg 1003 87 vis 1 1;
-#X msg 1074 88 vis 2 1;
-#N canvas 0 23 450 300 grains 0;
-#X restore 932 154 pd grains;
-#X msg 1096 146 1;
-#X obj 1098 173 s grains_playing_rcv_\$0;
-#X obj 912 122 clone y_grain_stereo \$2 \$0;
-#X obj 382 739 outlet~;
-#X obj 434 739 outlet~;
-#X connect 13 0 108 0;
-#X connect 22 0 0 0;
-#X connect 22 0 10 0;
-#X connect 22 0 23 0;
-#X connect 25 0 30 0;
-#X connect 26 0 27 0;
-#X connect 27 0 30 0;
-#X connect 28 0 29 0;
-#X connect 29 0 26 0;
-#X connect 30 0 24 0;
-#X connect 34 0 83 0;
-#X connect 36 0 123 0;
-#X connect 46 0 124 0;
-#X connect 47 0 125 0;
-#X connect 48 0 46 0;
-#X connect 49 0 47 0;
-#X connect 51 0 54 0;
-#X connect 51 0 55 0;
-#X connect 51 0 60 0;
-#X connect 51 0 61 0;
-#X connect 51 0 62 0;
-#X connect 51 0 63 0;
-#X connect 51 0 65 0;
-#X connect 51 0 64 0;
-#X connect 51 0 66 0;
-#X connect 51 0 67 0;
-#X connect 51 0 68 0;
-#X connect 51 0 69 0;
-#X connect 51 0 70 0;
-#X connect 51 0 71 0;
-#X connect 51 0 72 0;
-#X connect 51 0 74 0;
-#X connect 51 0 73 0;
-#X connect 51 0 76 0;
-#X connect 51 0 75 0;
-#X connect 51 0 77 0;
-#X connect 51 0 78 0;
-#X connect 51 0 79 0;
-#X connect 51 0 80 0;
-#X connect 51 0 81 0;
-#X connect 51 0 82 0;
-#X connect 52 0 51 0;
-#X connect 53 0 56 0;
-#X connect 54 0 3 0;
-#X connect 55 0 21 0;
-#X connect 56 0 38 1;
-#X connect 56 1 38 0;
-#X connect 56 2 52 0;
-#X connect 57 0 56 0;
-#X connect 58 0 46 1;
-#X connect 58 0 47 1;
-#X connect 60 0 39 0;
-#X connect 61 0 42 0;
-#X connect 62 0 17 0;
-#X connect 63 0 15 0;
-#X connect 64 0 16 0;
-#X connect 65 0 40 0;
-#X connect 66 0 32 0;
-#X connect 67 0 4 0;
-#X connect 68 0 33 0;
-#X connect 69 0 6 0;
-#X connect 70 0 7 0;
-#X connect 71 0 19 0;
-#X connect 72 0 35 0;
-#X connect 73 0 14 0;
-#X connect 74 0 5 0;
-#X connect 75 0 11 0;
-#X connect 76 0 18 0;
-#X connect 77 0 12 0;
-#X connect 78 0 59 0;
-#X connect 79 0 9 0;
-#X connect 80 0 8 0;
-#X connect 81 0 37 0;
-#X connect 82 0 13 0;
-#X connect 84 0 34 0;
-#X connect 85 0 117 0;
-#X connect 87 0 89 0;
-#X connect 88 0 87 0;
-#X connect 91 0 92 0;
-#X connect 92 0 93 0;
-#X connect 95 0 94 0;
-#X connect 96 0 95 0;
-#X connect 97 0 95 0;
-#X connect 98 0 31 0;
-#X connect 101 0 102 0;
-#X connect 102 0 105 0;
-#X connect 103 0 104 0;
-#X connect 105 0 103 0;
-#X connect 106 0 107 0;
-#X connect 108 0 44 0;
-#X connect 109 0 108 0;
-#X connect 110 0 44 0;
-#X connect 111 0 44 0;
-#X connect 112 0 31 0;
-#X connect 113 0 112 0;
-#X connect 114 0 115 0;
-#X connect 116 0 34 0;
-#X connect 117 0 116 0;
-#X connect 118 0 123 0;
-#X connect 119 0 123 0;
-#X connect 121 0 122 0;
-#X connect 123 0 121 0;
-#X coords 0 -1 1 1 400 600 1 10 10;
+#X floatatom 307 73 5 0 0 0 - - -;
+#X text 246 72 channels;
+#X obj 375 175 loadbang;
+#X msg 406 238 16;
+#X obj 306 24 r num_channels_rcv;
+#X obj 309 145 s num_channels;
+#X obj 609 17 r sample_seconds_rcv;
+#X obj 376 293 s numgrains;
+#X msg 263 249 vis 4 1;
+#X msg 445 239 32;
+#X text 198 308 number of instances of y_grain_stereo should equal
+the numgrains (I recognise this is silly);
+#X msg 375 238 10;
+#X obj 129 282 clone y_grain_stereo 10;
+#X connect 2 0 21 0;
+#X connect 6 0 7 0;
+#X connect 7 0 4 1;
+#X connect 7 1 4 0;
+#X connect 8 0 7 0;
+#X connect 9 0 14 0;
+#X connect 11 0 20 0;
+#X connect 12 0 16 0;
+#X connect 13 0 9 0;
+#X connect 15 0 0 0;
+#X connect 17 0 21 1;
+#X connect 18 0 16 0;
+#X connect 20 0 16 0;
+#X coords 0 441 1 440 400 600 0;
