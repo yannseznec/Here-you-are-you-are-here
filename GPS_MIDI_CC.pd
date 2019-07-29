@@ -1,4 +1,4 @@
-#N canvas 7 122 1046 773 10;
+#N canvas 0 82 1046 773 10;
 #X obj 164 67 ctlin 75 1;
 #X floatatom 178 139 5 0 0 0 - - -;
 #X floatatom 624 137 5 0 0 0 - - -;
@@ -74,7 +74,7 @@
 #X obj 381 116 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 377 93 metro 3000;
-#X obj 380 72 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 380 72 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 379 22 loadbang;
 #X msg 382 46 1;
@@ -85,7 +85,6 @@
 #X obj 701 398 * 10;
 #X obj 701 419 + 1;
 #X obj 701 440 i;
-#X obj 701 461 * 0.1;
 #X obj 237 397 s random_pitch_rcv;
 #X obj 442 344 s reverse_rcv;
 #X obj 158 367 s attack_rcv;
@@ -93,6 +92,9 @@
 #X obj 19 327 s sample_offset_rcv;
 #X obj 444 322 > 0.5;
 #X obj 835 333 s random_panning_rcv;
+#X obj 786 329 * 0.2;
+#X obj 701 461 * 0.4;
+#X obj 437 49 r snapshot_on;
 #X connect 0 0 1 0;
 #X connect 0 0 70 1;
 #X connect 1 0 7 0;
@@ -115,28 +117,28 @@
 #X connect 8 0 4 0;
 #X connect 9 0 5 0;
 #X connect 10 0 11 0;
-#X connect 11 0 89 0;
+#X connect 11 0 88 0;
 #X connect 12 0 80 0;
 #X connect 13 0 14 0;
-#X connect 14 0 90 0;
+#X connect 14 0 89 0;
 #X connect 15 0 16 0;
 #X connect 17 0 18 0;
-#X connect 18 0 87 0;
+#X connect 18 0 86 0;
 #X connect 19 0 20 0;
-#X connect 20 0 85 0;
+#X connect 20 0 84 0;
 #X connect 21 0 22 0;
 #X connect 22 0 79 0;
 #X connect 23 0 24 0;
-#X connect 24 0 88 0;
+#X connect 24 0 87 0;
 #X connect 25 0 26 0;
 #X connect 26 0 81 0;
 #X connect 27 0 28 0;
-#X connect 28 0 77 0;
+#X connect 28 0 91 0;
 #X connect 29 0 31 0;
 #X connect 30 0 29 0;
 #X connect 30 0 32 0;
 #X connect 30 0 34 0;
-#X connect 31 0 91 0;
+#X connect 31 0 90 0;
 #X connect 32 0 33 0;
 #X connect 34 0 35 0;
 #X connect 36 0 1 0;
@@ -172,6 +174,8 @@
 #X connect 76 0 74 0;
 #X connect 81 0 82 0;
 #X connect 82 0 83 0;
-#X connect 83 0 84 0;
-#X connect 84 0 78 0;
-#X connect 90 0 86 0;
+#X connect 83 0 92 0;
+#X connect 89 0 85 0;
+#X connect 91 0 77 0;
+#X connect 92 0 78 0;
+#X connect 93 0 74 0;

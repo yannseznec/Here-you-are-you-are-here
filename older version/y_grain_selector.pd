@@ -1,0 +1,51 @@
+#N canvas 840 159 840 842 10;
+#X floatatom 104 104 5 0 0 0 - - -, f 5;
+#X obj 102 179 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 99 393 send;
+#X obj 94 210 t f b;
+#X obj 97 335 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 28 137 inlet;
+#X obj 102 138 >= \$1;
+#X obj 178 281 i;
+#X obj 307 168 loadbang;
+#X obj 322 206 float \$1;
+#X obj 182 248 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 178 303 5 0 0 0 - - -, f 5;
+#X obj 410 161 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 299 106 * 16;
+#X obj 323 75 t b f;
+#X obj 54 433 s grain_on-\$1;
+#X obj 174 54 r grains_playing_\$2;
+#X obj 326 47 r numgrains_\$2;
+#X obj 143 354 makefilename %d-on_\$2;
+#X obj 314 246 tabread array1-\$2;
+#X obj 421 120 t b;
+#X floatatom 140 179 5 0 0 0 - - -, f 5;
+#X connect 0 0 6 0;
+#X connect 1 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 1 7 0;
+#X connect 4 0 2 0;
+#X connect 4 0 15 0;
+#X connect 5 0 1 0;
+#X connect 6 0 1 0;
+#X connect 6 0 21 0;
+#X connect 7 0 11 0;
+#X connect 8 0 9 0;
+#X connect 9 0 19 0;
+#X connect 10 0 7 0;
+#X connect 11 0 18 0;
+#X connect 12 0 9 0;
+#X connect 13 0 0 0;
+#X connect 14 0 13 0;
+#X connect 14 1 13 1;
+#X connect 16 0 13 0;
+#X connect 17 0 14 0;
+#X connect 17 0 20 0;
+#X connect 18 0 2 1;
+#X connect 19 0 7 1;
+#X connect 20 0 12 0;
