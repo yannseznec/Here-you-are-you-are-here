@@ -47,12 +47,12 @@
 #X connect 21 0 2 0;
 #X restore 418 113 pd loadsound;
 #N canvas 0 22 450 278 (subpatch) 0;
-#X array poly_grain-R 32539 float 2;
-#X coords 0 1 32539 -1 200 70 1 0 0;
+#X array poly_grain-R 702643 float 2;
+#X coords 0 1 702643 -1 200 70 1 0 0;
 #X restore 22 95 graph;
 #N canvas 0 23 450 278 (subpatch) 0;
-#X array poly_grain-L 32539 float 2;
-#X coords 0 1 32539 -1 200 70 1 0 0;
+#X array poly_grain-L 702643 float 2;
+#X coords 0 1 702643 -1 200 70 1 0 0;
 #X restore 22 25 graph;
 #N canvas 453 60 1194 614 windows 0;
 #N canvas 0 22 450 300 (subpatch) 0;
@@ -220,11 +220,11 @@
 #X obj 209 610 catch~ grainoutR;
 #X obj 231 854 dac~;
 #X obj 25 180 hsl 195 15 0 1 0 0 sample_offset sample_offset_rcv sample_offset
--2 -8 0 10 -262144 -1 -1 4900 1;
+-2 -8 0 10 -262144 -1 -1 5900 1;
 #X obj 25 244 hsl 128 15 0 1 0 0 offset_random offset_random_rcv offset_random
 -2 -8 0 10 -262144 -1 -1 254 1;
-#X obj 28 372 hsl 128 15 0 1 0 0 grain_size grain_size_rcv grain_size
--2 -8 0 10 -262144 -1 -1 1850 1;
+#X obj 28 372 hsl 128 15 0.001 1 0 0 grain_size grain_size_rcv grain_size
+-2 -8 0 10 -262144 -1 -1 6344 1;
 #X obj 26 336 hsl 128 15 0 1 0 0 random_pitch random_pitch_rcv random_pitch
 -2 -8 0 10 -262144 -1 -1 0 1;
 #X obj 177 448 hsl 128 15 0 1 0 0 random_panning random_panning_rcv
@@ -234,11 +234,9 @@ random_panning -2 -8 0 10 -262144 -1 -1 7620 1;
 #X obj 185 263 vsl 15 128 0 1 0 0 attack attack_rcv attack 0 -9 0 10
 -262144 -1 -1 254 1;
 #X obj 227 264 vsl 15 128 0 1 0 0 release release_rcv release 0 -9
-0 10 -262144 -1 -1 7754 1;
-#X obj 25 410 hsl 128 15 0.01 1 0 0 density density_rcv density -2
--8 0 10 -262144 -1 -1 9900 1;
-#X obj 25 447 hsl 128 15 0 1 0 0 grains_playing grains_playing_rcv
-grains_playing -2 -8 0 10 -262144 -1 -1 5000 1;
+0 10 -262144 -1 -1 254 1;
+#X obj 25 410 hsl 128 15 0.01 1 0 0 grain_density grain_density_rcv
+grain_density -2 -8 0 10 -262144 -1 -1 1234 1;
 #X obj 22 272 tgl 15 0 reverse reverse_rcv reverse 17 7 0 10 -262144
 -1 -1 0 1;
 #X obj 26 210 hsl 195 15 0 1 0 0 rec_location rec_location_rcv rec_location
@@ -433,7 +431,7 @@ grains_playing -2 -8 0 10 -262144 -1 -1 5000 1;
 #X connect 71 0 18 1;
 #X restore 419 90 pd sampling_stereo;
 #X obj 25 304 hsl 128 15 0 1 0 0 grain_pitch grain_pitch_rcv grain_pitch
--2 -8 0 10 -262144 -1 -1 5175 1;
+-2 -8 0 10 -262144 -1 -1 3175 1;
 #X obj 479 330 sel 0;
 #X text 455 270 turn this off to use without Bela;
 #N canvas 197 23 458 380 presets 0;
@@ -441,9 +439,9 @@ grains_playing -2 -8 0 10 -262144 -1 -1 5000 1;
 #X obj 94 66 loadbang;
 #X msg 96 98 \; grain_pitch_rcv 0.25 \; grain_size_rcv 0.5 \; sample_offset_rcv
 0.5 \; offset_random_rcv 0.02 \; random_pitch_rcv 0 \; random_panning_rcv
-0.6 \; global_pan_rcv 0.5 \; grains_playing_rcv 1 \; on_off_rcv 0 \;
+0.6 \; global_pan_rcv 0.5 \; grains_playing_rcv 1 \; on_off_rcv 1 \;
 attack_rcv 0.02 \; release_rcv 0.02 \; volume_rcv 1 \; num_channels_rcv
-2 \; density_rcv 0.8 \;;
+2 \; grain_density_rcv 0.1 \; grainplay_chance_rcv 1 \;;
 #X connect 0 0 2 0;
 #X connect 1 0 2 0;
 #X restore 480 360 pd presets;
@@ -510,49 +508,51 @@ attack_rcv 0.02 \; release_rcv 0.02 \; volume_rcv 1 \; num_channels_rcv
 #X obj 404 857 writesf~ 2;
 #X msg 445 351 1;
 #X obj 82 273 tgl 15 0 reverse_random reverse_random_rcv reverse_random
-17 7 0 10 -262144 -1 -1 0 1;
+17 7 0 10 -262144 -1 -1 1 1;
 #X obj 375 106 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X connect 4 0 25 0;
-#X connect 5 0 26 0;
-#X connect 21 0 20 0;
-#X connect 22 0 20 0;
-#X connect 24 0 28 0;
+#X obj 27 450 hsl 128 15 0 1 0 0 grainplay_chance grainplay_chance_rcv
+grainplay_chance -2 -8 0 10 -262144 -1 -1 12700 1;
+#X connect 4 0 24 0;
+#X connect 5 0 25 0;
+#X connect 20 0 19 0;
+#X connect 21 0 19 0;
+#X connect 23 0 27 0;
+#X connect 24 0 54 0;
 #X connect 25 0 55 0;
-#X connect 26 0 56 0;
-#X connect 27 0 25 1;
-#X connect 27 0 26 1;
-#X connect 28 0 23 0;
-#X connect 29 0 30 0;
+#X connect 26 0 24 1;
+#X connect 26 0 25 1;
+#X connect 27 0 22 0;
+#X connect 28 0 29 0;
+#X connect 31 0 30 0;
+#X connect 31 0 36 0;
 #X connect 32 0 31 0;
-#X connect 32 0 37 0;
 #X connect 33 0 32 0;
-#X connect 34 0 33 0;
-#X connect 37 0 39 0;
-#X connect 37 0 71 0;
-#X connect 41 0 40 0;
-#X connect 49 0 48 0;
-#X connect 50 0 48 1;
-#X connect 52 0 56 1;
-#X connect 52 0 55 1;
-#X connect 53 0 54 0;
-#X connect 54 0 62 0;
-#X connect 54 0 57 1;
-#X connect 54 0 66 0;
-#X connect 55 0 6 0;
-#X connect 55 0 70 0;
-#X connect 56 0 6 1;
-#X connect 56 0 70 1;
-#X connect 57 0 62 0;
+#X connect 36 0 38 0;
+#X connect 36 0 70 0;
+#X connect 40 0 39 0;
+#X connect 48 0 47 0;
+#X connect 49 0 47 1;
+#X connect 51 0 55 1;
+#X connect 51 0 54 1;
+#X connect 52 0 53 0;
+#X connect 53 0 61 0;
+#X connect 53 0 56 1;
+#X connect 53 0 65 0;
+#X connect 54 0 6 0;
+#X connect 54 0 69 0;
+#X connect 55 0 6 1;
+#X connect 55 0 69 1;
+#X connect 56 0 61 0;
+#X connect 57 0 56 0;
 #X connect 58 0 57 0;
-#X connect 59 0 58 0;
-#X connect 60 0 61 0;
-#X connect 61 0 59 0;
-#X connect 62 0 52 0;
+#X connect 59 0 60 0;
+#X connect 60 0 58 0;
+#X connect 61 0 51 0;
+#X connect 64 0 63 0;
 #X connect 65 0 64 0;
-#X connect 66 0 65 0;
-#X connect 67 0 70 0;
-#X connect 68 0 70 0;
-#X connect 69 0 70 0;
-#X connect 71 0 54 0;
-#X connect 73 0 0 0;
+#X connect 66 0 69 0;
+#X connect 67 0 69 0;
+#X connect 68 0 69 0;
+#X connect 70 0 53 0;
+#X connect 72 0 0 0;
