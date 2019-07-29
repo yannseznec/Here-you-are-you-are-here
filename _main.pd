@@ -1,4 +1,4 @@
-#N canvas 163 36 870 842 10;
+#N canvas 223 23 870 842 10;
 #N canvas 90 372 1326 420 loadsound 0;
 #X obj 88 278 soundfiler;
 #X floatatom 88 300 15 0 0 0 - - -;
@@ -220,7 +220,7 @@
 #X obj 209 610 catch~ grainoutR;
 #X obj 231 854 dac~;
 #X obj 25 180 hsl 195 15 0 1 0 0 sample_offset sample_offset_rcv sample_offset
--2 -8 0 10 -262144 -1 -1 5900 1;
+-2 -8 0 10 -262144 -1 -1 4680 1;
 #X obj 25 244 hsl 128 15 0 1 0 0 offset_random offset_random_rcv offset_random
 -2 -8 0 10 -262144 -1 -1 254 1;
 #X obj 28 372 hsl 128 15 0.001 1 0 0 grain_size grain_size_rcv grain_size
@@ -232,17 +232,17 @@ random_panning -2 -8 0 10 -262144 -1 -1 7620 1;
 #X obj 177 416 hsl 128 15 0 1 0 0 global_pan global_pan_rcv global_pan
 -2 -8 0 10 -262144 -1 -1 6350 1;
 #X obj 185 263 vsl 15 128 0 1 0 0 attack attack_rcv attack 0 -9 0 10
--262144 -1 -1 254 1;
+-262144 -1 -1 6354 1;
 #X obj 227 264 vsl 15 128 0 1 0 0 release release_rcv release 0 -9
-0 10 -262144 -1 -1 254 1;
+0 10 -262144 -1 -1 6754 1;
 #X obj 25 410 hsl 128 15 0.01 1 0 0 grain_density grain_density_rcv
-grain_density -2 -8 0 10 -262144 -1 -1 1234 1;
+grain_density -2 -8 0 10 -262144 -1 -1 1155 1;
 #X obj 22 272 tgl 15 0 reverse reverse_rcv reverse 17 7 0 10 -262144
 -1 -1 0 1;
 #X obj 26 210 hsl 195 15 0 1 0 0 rec_location rec_location_rcv rec_location
 -2 -8 0 10 -262144 -258113 -1 0 1;
 #X obj 279 267 vsl 15 128 0.01 1.4 1 0 volume volume_rcv volume 0 -9
-0 10 -262144 -1 -1 11835 1;
+0 10 -262144 -1 -1 10435 1;
 #X obj 18 518 s pd;
 #X msg 18 476 midi-properties;
 #X msg 29 496 audio-properties;
@@ -438,7 +438,7 @@ grain_density -2 -8 0 10 -262144 -1 -1 1234 1;
 #X obj 234 58 inlet;
 #X obj 94 66 loadbang;
 #X msg 96 98 \; grain_pitch_rcv 0.25 \; grain_size_rcv 0.5 \; sample_offset_rcv
-0.5 \; offset_random_rcv 0.02 \; random_pitch_rcv 0 \; random_panning_rcv
+0.2 \; offset_random_rcv 0.02 \; random_pitch_rcv 0 \; random_panning_rcv
 0.6 \; global_pan_rcv 0.5 \; grains_playing_rcv 1 \; on_off_rcv 1 \;
 attack_rcv 0.02 \; release_rcv 0.02 \; volume_rcv 1 \; num_channels_rcv
 2 \; grain_density_rcv 0.1 \; grainplay_chance_rcv 1 \;;
@@ -481,10 +481,10 @@ attack_rcv 0.02 \; release_rcv 0.02 \; volume_rcv 1 \; num_channels_rcv
 -1 -1 0 1;
 #X obj 251 183 tgl 15 0 input_monitor input_monitor_rcv input_monitor
 17 7 0 10 -262144 -1 -1 0 1;
-#X obj 388 458 GPS_MIDI_CC, f 32;
-#X floatatom 388 423 5 0 0 0 - - -;
-#X floatatom 577 424 5 0 0 0 - - -;
-#X text 423 424 <--simulate location-->;
+#X obj 464 478 GPS_MIDI_CC, f 32;
+#X floatatom 464 443 5 0 0 0 - - -;
+#X floatatom 653 444 5 0 0 0 - - -;
+#X text 499 444 <--simulate location-->;
 #X obj 243 783 line~;
 #X obj 334 681 ctlin 127 1;
 #X obj 333 702 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
@@ -508,18 +508,53 @@ attack_rcv 0.02 \; release_rcv 0.02 \; volume_rcv 1 \; num_channels_rcv
 #X obj 404 857 writesf~ 2;
 #X msg 445 351 1;
 #X obj 82 273 tgl 15 0 reverse_random reverse_random_rcv reverse_random
-17 7 0 10 -262144 -1 -1 1 1;
+17 7 0 10 -262144 -1 -1 0 1;
 #X obj 375 106 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 27 450 hsl 128 15 0 1 0 0 grainplay_chance grainplay_chance_rcv
 grainplay_chance -2 -8 0 10 -262144 -1 -1 12700 1;
+#X obj 95 792 *~;
+#X obj 130 784 *~;
+#X obj 48 742 line~;
+#X obj 47 687 tgl 15 0 empty on_off empty 17 7 0 10 -262144 -1 -1 1
+1;
+#N canvas 322 23 1088 686 simple_env 0;
+#X obj 279 105 sel 1 0;
+#X obj 229 177 * 2000;
+#X obj 309 170 * 5000;
+#X obj 214 219 f;
+#X obj 285 219 f;
+#X msg 168 269 1 \$1;
+#X msg 290 264 0 \$1;
+#X obj 229 136 r attack;
+#X obj 318 136 r release;
+#X obj 280 385 outlet;
+#X obj 283 60 inlet;
+#X obj 182 175 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 356 187 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X connect 0 0 3 0;
+#X connect 0 1 4 0;
+#X connect 1 0 3 1;
+#X connect 2 0 4 1;
+#X connect 3 0 5 0;
+#X connect 4 0 6 0;
+#X connect 5 0 9 0;
+#X connect 6 0 9 0;
+#X connect 7 0 1 0;
+#X connect 8 0 2 0;
+#X connect 10 0 0 0;
+#X connect 11 0 3 0;
+#X connect 12 0 4 0;
+#X restore 47 718 pd simple_env;
 #X connect 4 0 24 0;
 #X connect 5 0 25 0;
 #X connect 20 0 19 0;
 #X connect 21 0 19 0;
 #X connect 23 0 27 0;
-#X connect 24 0 54 0;
-#X connect 25 0 55 0;
+#X connect 24 0 74 0;
+#X connect 25 0 75 0;
 #X connect 26 0 24 1;
 #X connect 26 0 25 1;
 #X connect 27 0 22 0;
@@ -556,3 +591,9 @@ grainplay_chance -2 -8 0 10 -262144 -1 -1 12700 1;
 #X connect 68 0 69 0;
 #X connect 70 0 53 0;
 #X connect 72 0 0 0;
+#X connect 74 0 54 0;
+#X connect 75 0 55 0;
+#X connect 76 0 75 1;
+#X connect 76 0 74 1;
+#X connect 77 0 78 0;
+#X connect 78 0 76 0;
